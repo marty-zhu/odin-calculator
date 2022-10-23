@@ -14,9 +14,34 @@ ul, ol {
 
 .cal-faceplate {
     display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: 
+        "cal-viewport cal-viewport cal-viewport cal-viewport"
+        "cal-clear cal-clear cal-clear cal-ops"
+        "cal-numpad cal-numpad cal-numpad cal-ops"
+        "cal-numpad cal-numpad cal-numpad cal-ops"
+        "cal-numpad cal-numpad cal-numpad cal-ops"
+        "cal-numpad cal-numpad cal-numpad cal-exec"
+    ;
+    width: 33vh;
+}
+
+#cal-viewport {
+    grid-area: cal-viewport;
+}
+
+#cal-clear {
+    grid-area: cal-clear;
+}
+
+#cal-ops {
+    grid-area: cal-ops;
 }
 
 #cal-numpad {
+    grid-area: cal-numpad;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -40,3 +65,4 @@ ul, ol {
     grid-column-start: 1;
     grid-column-end: 3;
 }
+

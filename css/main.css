@@ -46,7 +46,6 @@ ul, ol {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    width: 75%;
     max-height: 50vh;
 }
 
@@ -54,12 +53,11 @@ ul, ol {
     border: 1px solid gray;
 }
 
-.cal-numkey {
+.cal-key {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid blue;
-    width: 33.33%;
 }
 
 .cal-numkey:not(#num-0) {

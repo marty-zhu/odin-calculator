@@ -49,7 +49,7 @@ ul, ol {
     max-height: 50vh;
 }
 
-.cal-key {
+.cal-key:not(.cal-numkey) {
     border: 1px solid gray;
 }
 

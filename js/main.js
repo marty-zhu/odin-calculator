@@ -11,12 +11,20 @@ const calViewport = document.querySelector("div#cal-viewport");
 let numEntry = new Array();
 // create display function to show the numbers entered in the viewport
 function convertToNumString(numArr) {
-    let numString = numArr.reduce((cumul, next) => cumul + next);
-    return numString;
+    if (numArr.length > 0) {
+        let numString = numArr.reduce((cumul, next) => cumul + next);
+        return numString;
+    } else {
+        return false;
+    };
 }
 
 function updateViewport(numString) {
-    calViewport.textContent = numString;
+    if (numString === false) {
+        calViewport.textContent = 0;
+    } else {
+        calViewport.textContent = numString;
+    };
 }
 
 function clearNum(numArr) {

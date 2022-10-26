@@ -27,6 +27,7 @@ function displayNum(numString) {
 numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
         numEntry.push(e.target.textContent);
-        console.log(numEntry);
+        let numString = convertToNumString(numEntry);
+        displayNum(numString);
     })
 })

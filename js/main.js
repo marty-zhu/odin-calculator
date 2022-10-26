@@ -15,7 +15,7 @@ function convertToNumString(numArr) {
     return numString;
 }
 
-function displayNum(numString) {
+function updateViewport(numString) {
     calViewport.textContent = numString;
 }
 
@@ -33,6 +33,6 @@ numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
         numEntry.push(e.target.textContent);
         let numString = convertToNumString(numEntry);
-        displayNum(numString);
+        updateViewport(numString);
     })
 })

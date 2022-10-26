@@ -19,6 +19,11 @@ function displayNum(numString) {
     calViewport.textContent = numString;
 }
 
+function clearNum(numArr) {
+    calViewport.textContent = 0;
+    numArr = new Array()
+}
+
 // when an ops key is pressed, convert the stored numbers to one numerical variable, conclude previous calculations
 // display the entered number or calculation result
 // if the "=" key is pressed, conclude calculations and display result

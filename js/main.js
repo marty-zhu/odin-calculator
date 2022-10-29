@@ -28,7 +28,6 @@ function updateViewport(numString) {
 }
 
 function clearNum() {
-    updateViewport(false);
     numEntered = [];
 }
 
@@ -47,6 +46,5 @@ numpadKeys.forEach((numKey) => {
 
 clearKey.addEventListener('click', () => {
     clearNum(numEntered);
-    console.log(numEntered);
-    updateViewport();
+    updateViewport('0');
 });

@@ -1,6 +1,7 @@
 // separate number keys and operations keys
 const numpadKeys = document.querySelectorAll(".cal-numkey");
 const opsKeys = document.querySelectorAll(".cal-opskey");
+
 // isolate the clear key and equals key
 const enterKey = document.querySelector("div#cal-exec");
 const clearKey = document.querySelector("div#cal-clear");
@@ -9,6 +10,7 @@ const calViewport = document.querySelector("div#cal-viewport");
 
 // create variable to store numbers, one digit at a time
 let numEntered = new Array();
+
 // create display function to show the numbers entered in the viewport
 function convertToNumString(numArr) {
     if (numArr.length > 0) {
@@ -38,7 +40,7 @@ function clearNum() {
 
 numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
-        numEntered.push(e.target.textContent);
+        numEntered.push(e.target.getAttribute('data-value'));
         let numString = convertToNumString(numEntered);
         updateViewport(numString);
     })

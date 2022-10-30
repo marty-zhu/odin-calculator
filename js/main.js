@@ -46,5 +46,5 @@ numpadKeys.forEach((numKey) => {
 
 clearKey.addEventListener('click', () => {
     clearNum(numEntered);
-    updateViewport('0');
+    updateViewport(false);
 });

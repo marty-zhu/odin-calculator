@@ -131,3 +131,12 @@ enterKey.addEventListener('click', () => {
 })
 
 // CALCULATOR AESTHETICS
+
+calKeys.forEach((calKey) => {
+    calKey.addEventListener('mousedown', (e) => {
+        calKey.classList.add('active');
+    });
+    calKey.addEventListener('mouseup', (e) => {
+        calKey.classList.remove('active');
+    });
+})

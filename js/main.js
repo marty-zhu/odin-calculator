@@ -100,3 +100,13 @@ clearKey.addEventListener('click', () => {
     clearNum(numEntered);
     updateViewport(false);
 });
+
+opsKeys.forEach((opsKey) => {
+    opsKey.addEventListener('click', (e) => {
+        operation = ops[e.target.getAttribute('data-op')];
+        // console.log(operation);
+        let result = operation(initialNum, Number(convertToNumString(numEntered)));
+        initialNum = result;
+        updateViewport(initialNum);
+    })
+})

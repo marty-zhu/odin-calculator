@@ -66,11 +66,18 @@ const ops = {
     '/': divide,
 };
 
-function calculate(firstNum, secNum, func) {
-    if (func === null) {
-        func = add;
+function calculate(initialNum, secNumArr, operation) {
+    if (operation === null) {
+        operation = add;
     };
-    return func(firstNum, secNum);
+    // console.log(operation);
+
+    let secNum = Number(convertToNumString(secNumArr));
+    let calcResult = operation(initialNum, secNum);
+
+    clearNum();
+
+    return calcResult;
 }
 
 // display the entered number or calculation result

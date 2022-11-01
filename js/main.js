@@ -1,3 +1,6 @@
+// TODO: add BACKSPACE capability
+// TODO: add keyboard support
+
 // all calculator keys
 const calKeys = document.querySelectorAll(".cal-key");
 

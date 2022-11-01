@@ -55,6 +55,13 @@ function divide(a, b) {
     };
 };
 
+const ops = {
+    '+': add,
+    '-': subtract,
+    '*': multiply,
+    '/': divide,
+};
+
 // display the entered number or calculation result
 // if the "=" key is pressed, conclude calculations and display result
 // if the "CLEAR" key is pressed, clear all variables

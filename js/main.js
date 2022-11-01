@@ -110,10 +110,17 @@ clearKey.addEventListener('click', () => {
 
 opsKeys.forEach((opsKey) => {
     opsKey.addEventListener('click', (e) => {
+        // console.log(initialNum);
+        // console.log(operation);
+        initialNum = calculate(initialNum, numEntered, operation);
         operation = ops[e.target.getAttribute('data-op')];
         // console.log(operation);
-        let result = operation(initialNum, Number(convertToNumString(numEntered)));
-        initialNum = result;
+        // console.log(initialNum);
         updateViewport(initialNum);
     })
+})
+
+enterKey.addEventListener('click', () => {
+    initialNum = calculate(initialNum, numEntered, operation);
+    updateViewport(initialNum);
 })

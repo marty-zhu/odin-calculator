@@ -60,6 +60,10 @@ ul, ol {
     border: 1px solid blue;
 }
 
+.cal-key.active {
+    transform: scale(0.95);
+}
+
 .cal-numkey:not(#num-0) {
     aspect-ratio: 1/1;
 }

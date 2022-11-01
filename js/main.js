@@ -66,6 +66,13 @@ const ops = {
     '/': divide,
 };
 
+function calculate(firstNum, secNum, func) {
+    if (func === null) {
+        func = add;
+    };
+    return func(firstNum, secNum);
+}
+
 // display the entered number or calculation result
 // if the "=" key is pressed, conclude calculations and display result
 // if the "CLEAR" key is pressed, clear all variables

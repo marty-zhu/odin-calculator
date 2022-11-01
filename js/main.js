@@ -1,6 +1,7 @@
 // separate number keys and operations keys
 const numpadKeys = document.querySelectorAll(".cal-numkey");
 const opsKeys = document.querySelectorAll(".cal-opskey");
+const decimalKey = document.querySelector("li#num-deci");
 
 // isolate the clear key and equals key
 const enterKey = document.querySelector("div#cal-exec");
@@ -19,7 +20,7 @@ function convertToNumString(numArr) {
     } else {
         return false;
     };
-}
+};
 
 function updateViewport(numString) {
     if (numString === false) {
@@ -27,11 +28,11 @@ function updateViewport(numString) {
     } else {
         calViewport.textContent = numString;
     };
-}
+};
 
 function clearNum() {
     numEntered = [];
-}
+};
 
 // when an ops key is pressed, convert the stored numbers to one numerical variable, conclude previous calculations
 // display the entered number or calculation result
@@ -43,7 +44,15 @@ numpadKeys.forEach((numKey) => {
         numEntered.push(e.target.getAttribute('data-value'));
         let numString = convertToNumString(numEntered);
         updateViewport(numString);
-    })
+    });
+});
+
+decimalKey.addEventListener('click', (e) => {
+    if (!numEntered.includes('.')) {
+        numEntered.push(e.target.getAttribute('data-value'));
+        let numString = convertToNumString(numEntered);
+        updateViewport(numString);
+    };
 });
 
 clearKey.addEventListener('click', () => {

@@ -1,3 +1,6 @@
+// all calculator keys
+const calKeys = document.querySelectorAll(".cal-key");
+
 // separate number keys and operations keys
 const numpadKeys = document.querySelectorAll(".cal-numkey");
 const opsKeys = document.querySelectorAll(".cal-opskey");

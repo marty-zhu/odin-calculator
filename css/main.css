@@ -60,6 +60,10 @@ ul, ol {
     border: 1px solid blue;
 }
 
+.cal-key:hover {
+    border: 3px solid orange;
+}
+
 .cal-key.active {
     transform: scale(0.95);
 }

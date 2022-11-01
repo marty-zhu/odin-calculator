@@ -12,6 +12,8 @@ const clearKey = document.querySelector("div#cal-clear");
 
 const calViewport = document.querySelector("div#cal-viewport");
 
+// CALCULATOR LOGIC
+
 // create variable to store numbers, one digit at a time
 let initialNum = 0;
 let numEntered = new Array();
@@ -127,3 +129,5 @@ enterKey.addEventListener('click', () => {
     initialNum = calculate(initialNum, numEntered, operation);
     updateViewport(initialNum);
 })
+
+// CALCULATOR AESTHETICS

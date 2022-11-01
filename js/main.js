@@ -10,7 +10,9 @@ const clearKey = document.querySelector("div#cal-clear");
 const calViewport = document.querySelector("div#cal-viewport");
 
 // create variable to store numbers, one digit at a time
+let initialNum = 0;
 let numEntered = new Array();
+let operation = null;
 
 // create display function to show the numbers entered in the viewport
 function convertToNumString(numArr) {
@@ -32,6 +34,8 @@ function updateViewport(numString) {
 
 function clearNum() {
     numEntered = [];
+    initialNum = 0;
+    operation = null;
 };
 
 // when an ops key is pressed, convert the stored numbers to one numerical variable, conclude previous calculations

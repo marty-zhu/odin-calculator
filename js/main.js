@@ -26,7 +26,7 @@ function convertToNumString(numArr) {
 
 function updateViewport(numString) {
     if (numString === false) {
-        calViewport.textContent = 0;
+        calViewport.textContent = 'ERROR';
     } else {
         calViewport.textContent = numString;
     };
@@ -104,8 +104,8 @@ decimalKey.addEventListener('click', (e) => {
 });
 
 clearKey.addEventListener('click', () => {
-    clearNum(numEntered);
-    updateViewport(false);
+    clearNum();
+    updateViewport(initialNum);
 });
 
 opsKeys.forEach((opsKey) => {

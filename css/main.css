@@ -21,7 +21,7 @@ ul, ol {
     grid-template-rows: repeat(6, 1fr);
     grid-template-areas: 
         "cal-viewport cal-viewport cal-viewport cal-viewport"
-        "cal-clear cal-clear cal-clear cal-ops"
+        "cal-clear cal-clear cal-bksp cal-ops"
         "cal-numpad cal-numpad cal-numpad cal-ops"
         "cal-numpad cal-numpad cal-numpad cal-ops"
         "cal-numpad cal-numpad cal-numpad cal-ops"
@@ -37,6 +37,10 @@ ul, ol {
 
 #cal-clear {
     grid-area: cal-clear;
+}
+
+#cal-bksp {
+    grid-area: cal-bksp;
 }
 
 #cal-ops {

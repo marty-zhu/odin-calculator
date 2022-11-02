@@ -104,6 +104,14 @@ numpadKeys.forEach((numKey) => {
         let numString = convertToNumString(numEntered);
         updateViewport(numString);
     });
+    // numKey.addEventListener('keydown', (e) => {
+    //     if (e.code == `Digit${numKey.getAttribute('data-value')}`) {
+    //         console.log(numKey.getAttribute('data-value'));
+    //         numEntered.push(numKey.getAttribute('data-value'));
+    //         let numString = convertToNumString(numEntered);
+    //         updateViewport(numString);
+    //     };
+    // });
 });
 
 decimalKey.addEventListener('click', (e) => {

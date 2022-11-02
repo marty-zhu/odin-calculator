@@ -8,6 +8,7 @@ const calKeys = document.querySelectorAll(".cal-key");
 const numpadKeys = document.querySelectorAll(".cal-numkey");
 const opsKeys = document.querySelectorAll(".cal-opskey");
 const decimalKey = document.querySelector("li#num-deci");
+const bkspKey = document.querySelector("div#cal-bksp")
 
 // isolate the clear key and equals key
 const enterKey = document.querySelector("div#cal-exec");
@@ -44,6 +45,10 @@ function clearNum() {
     numEntered = [];
     initialNum = 0;
     operation = null;
+};
+
+function backspace() {
+    numEntered.pop();
 };
 
 // when an ops key is pressed, convert the stored numbers to one numerical variable, conclude previous calculations
@@ -114,6 +119,12 @@ decimalKey.addEventListener('click', (e) => {
 clearKey.addEventListener('click', () => {
     clearNum();
     updateViewport(initialNum);
+});
+
+bkspKey.addEventListener('click', () => {
+    backspace();
+    let numString = convertToNumString(numEntered);
+    updateViewport(numString);
 });
 
 opsKeys.forEach((opsKey) => {

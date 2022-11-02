@@ -1,5 +1,7 @@
 // TODO: add keyboard support
 
+// 0. DOM OBJECTS
+
 // all calculator keys
 const calKeys = document.querySelectorAll(".cal-key");
 
@@ -15,15 +17,15 @@ const clearKey = document.querySelector("div#cal-clear");
 
 const calViewport = document.querySelector("div#cal-viewport");
 
-// CALCULATOR LOGIC
+// 1. CALCULATOR LOGICAL VARIABLES AND FUNCTIONS
 
 // create variable to store numbers, one digit at a time
 let initialNum = 0;
 let numEntered = new Array();
 let operation = null;
 
-// create display function to show the numbers entered in the viewport
 function convertToNumString(numArr) {
+    // create display function to show the numbers entered in the viewport
     if (numArr.length > 0) {
         let numString = numArr.reduce((cumul, next) => cumul + next);
         return numString;
@@ -34,6 +36,7 @@ function convertToNumString(numArr) {
 
 function updateViewport(numString) {
     if (numString === false) {
+        // for divide by zero error
         calViewport.textContent = 'ERROR';
     } else {
         calViewport.textContent = numString;
@@ -50,6 +53,7 @@ function backspace() {
     numEntered.pop();
 };
 
+// calculation functions
 function add(a, b) {
     return a + b;
 };
@@ -90,7 +94,10 @@ function calculate(initialNum, secNumArr, operation) {
     return calcResult;
 }
 
-// event listener for general numpad keys
+// 3. EVENT LISTNERS
+
+// 3.1. LOGICAL EVENT LISTNERS
+
 numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
         numEntered.push(e.target.getAttribute('data-value'));
@@ -99,7 +106,6 @@ numpadKeys.forEach((numKey) => {
     });
 });
 
-// event listener for decimal key with checks
 decimalKey.addEventListener('click', (e) => {
     // check to see if there already is a decimal
     if (!numEntered.includes('.')) {
@@ -133,7 +139,7 @@ enterKey.addEventListener('click', () => {
     updateViewport(initialNum);
 })
 
-// CALCULATOR AESTHETICS
+// 3.2. AESTHETICAL EVENT LISTNERS
 
 calKeys.forEach((calKey) => {
     calKey.addEventListener('mousedown', (e) => {

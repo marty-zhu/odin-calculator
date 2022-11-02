@@ -149,3 +149,10 @@ calKeys.forEach((calKey) => {
         calKey.classList.remove('active');
     });
 })
+
+// test keyboard event listner
+document.addEventListener('keydown', (e) => {
+    let name = e.key;
+    let code = e.code;
+    console.log(`${name} pressed with code ${code}`);
+})

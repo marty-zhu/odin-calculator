@@ -1,4 +1,3 @@
-// TODO: add BACKSPACE capability
 // TODO: add keyboard support
 
 // all calculator keys
@@ -51,7 +50,6 @@ function backspace() {
     numEntered.pop();
 };
 
-// when an ops key is pressed, convert the stored numbers to one numerical variable, conclude previous calculations
 function add(a, b) {
     return a + b;
 };
@@ -83,7 +81,6 @@ function calculate(initialNum, secNumArr, operation) {
     if (operation === null) {
         operation = add;
     };
-    // console.log(operation);
 
     let secNum = Number(convertToNumString(secNumArr));
     let calcResult = operation(initialNum, secNum);
@@ -92,10 +89,6 @@ function calculate(initialNum, secNumArr, operation) {
 
     return calcResult;
 }
-
-// display the entered number or calculation result
-// if the "=" key is pressed, conclude calculations and display result
-// if the "CLEAR" key is pressed, clear all variables
 
 // event listener for general numpad keys
 numpadKeys.forEach((numKey) => {
@@ -129,12 +122,8 @@ bkspKey.addEventListener('click', () => {
 
 opsKeys.forEach((opsKey) => {
     opsKey.addEventListener('click', (e) => {
-        // console.log(initialNum);
-        // console.log(operation);
         initialNum = calculate(initialNum, numEntered, operation);
         operation = ops[e.target.getAttribute('data-op')];
-        // console.log(operation);
-        // console.log(initialNum);
         updateViewport(initialNum);
     })
 })

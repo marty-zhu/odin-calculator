@@ -161,6 +161,6 @@ calKeys.forEach((calKey) => {
 // test keyboard event listner
 document.addEventListener('keydown', (e) => {
     let name = e.key;
-    let code = e.code;
-    console.log(`${name} pressed with code ${code}`);
+    let ordCode = name.charCodeAt(0);
+    console.log(`${name} pressed with ordinal code ${ordCode}`);
 })

@@ -137,7 +137,7 @@ bkspKey.addEventListener('click', () => {
 opsKeys.forEach((opsKey) => {
     opsKey.addEventListener('click', (e) => {
         initialNum = calculate(initialNum, numEntered, operation);
-        operation = ops[e.target.getAttribute('data-op')];
+        operation = ops[e.target.getAttribute('data-value')];
         updateViewport(initialNum);
     })
 })

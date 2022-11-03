@@ -181,4 +181,9 @@ document.addEventListener('keydown', (e) => {
         let numString = convertToNumString(numEntered);
         updateViewport(numString);
     };
+
+    if (code === 'Enter') {
+        initialNum = calculate(initialNum, numEntered, operation);
+        updateViewport(initialNum);
+    }
 })

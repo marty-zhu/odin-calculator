@@ -175,4 +175,10 @@ document.addEventListener('keydown', (e) => {
         clearNum();
         updateViewport(initialNum);
     };
+
+    if (code === 'Backspace') {
+        backspace();
+        let numString = convertToNumString(numEntered);
+        updateViewport(numString);
+    };
 })

@@ -51,6 +51,10 @@ ul, ol {
     grid-area: cal-bksp;
 }
 
+#cal-bksp svg {
+    max-width: 60%;
+}
+
 #cal-ops {
     grid-area: cal-ops;
 }

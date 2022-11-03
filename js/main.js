@@ -1,4 +1,4 @@
-// TODO: add keyboard support
+// TODO: add overflow rounding (max width 8 chars)
 
 // 0. DOM OBJECTS
 

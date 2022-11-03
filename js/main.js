@@ -185,5 +185,11 @@ document.addEventListener('keydown', (e) => {
     if (code === 'Enter') {
         initialNum = calculate(initialNum, numEntered, operation);
         updateViewport(initialNum);
-    }
+    };
+
+    if (['+', '-', '*', '/'].includes(name)) {
+        initialNum = calculate(initialNum, numEntered, operation);
+        operation = ops[name];
+        updateViewport(initialNum);
+    };
 })

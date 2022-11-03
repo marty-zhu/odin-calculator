@@ -41,6 +41,7 @@ ul, ol {
     font-family: "digital-clock-font";
     font-size: 4em;
     text-align: right;
+    overflow-x: hidden;
 }
 
 #cal-clear {

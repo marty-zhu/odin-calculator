@@ -23,6 +23,7 @@ const calViewport = document.querySelector("div#cal-viewport");
 let initialNum = 0;
 let numEntered = new Array();
 let operation = null;
+let rounded = false;
 
 function convertToNumString(numArr) {
     // create display function to show the numbers entered in the viewport
@@ -59,6 +60,7 @@ function clearNum() {
     numEntered = [];
     initialNum = 0;
     operation = null;
+    rounded = false;
 };
 
 function backspace() {

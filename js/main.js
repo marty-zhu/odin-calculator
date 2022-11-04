@@ -164,11 +164,20 @@ document.addEventListener('keydown', (e) => {
     let code = e.code;
     let ordCode = name.charCodeAt(0);
 
-    if ((Number(name) >= 0 && Number(name) <= 9) || (name === '.')) {
+    if (Number(name) >= 0 && Number(name) <= 9) {
         numEntered.push(name);
         let numString = convertToNumString(numEntered);
         updateViewport(numString);
     };
+
+    if (name === '.') {
+        // check to see if there already is a decimal
+        if (!numEntered.includes('.')) {
+            numEntered.push(name);
+            let numString = convertToNumString(numEntered);
+            updateViewport(numString);
+        };
+    }
 
     if (code === 'KeyC') {
         clearNum();

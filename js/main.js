@@ -115,6 +115,7 @@ function calculate(initialNum, secNumArr, operation) {
 numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
         numEntered.push(e.target.getAttribute('data-value'));
+        // check if array has '.'
         let numString = convertToNumString(numEntered);
         updateViewport(numString);
     });

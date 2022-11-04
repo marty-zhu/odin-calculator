@@ -22,7 +22,7 @@ const calViewport = document.querySelector("div#cal-viewport");
 // create variable to store numbers, one digit at a time
 let initialNum = 0;
 let numEntered = new Array();
-let operation = null;
+let operation = undefined;
 let rounded = false;
 
 function convertToNumString(numArr) {
@@ -59,7 +59,7 @@ function updateViewport(numString) {
 function clearNum() {
     numEntered = [];
     initialNum = 0;
-    operation = null;
+    operation = undefined;
     rounded = false;
 };
 
@@ -96,7 +96,7 @@ const ops = {
 };
 
 function calculate(initialNum, secNumArr, operation) {
-    if (operation === null) {
+    if (operation === undefined) {
         operation = add;
     };
 

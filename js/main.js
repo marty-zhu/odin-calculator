@@ -36,15 +36,19 @@ function convertToNumString(numArr) {
 };
 
 function round(numArr, n, rounded) {
-    if (numArr > n) {
+    // TODO: account for when the last digit is 9
+    if (numArr.length > n) {
         if (!rounded) {
-            if (numArr[n] > 4) {
-                numArr[n-1]++;
+            console.log('not rounded!');
+            let num = Number(numArr[n]);
+            if (num > 4) {
+                numArr[n-1] = `${Number(numArr[n-1]) + 1}`;
             };
             numArr = numArr.slice(0, 9);
-        }
+            rounded = true;
+        };
     };
-    return [numArr, true];
+    return [numArr, rounded];
 };
 
 function updateViewport(numString) {
@@ -114,14 +118,34 @@ function calculate(initialNum, secNumArr, operation) {
 
 numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
-        numEntered.push(e.target.getAttribute('data-value'));
+        // TODO: fix bug that causes timing inconsistencies between conditions to trigger rounding and the rounding function
+        // main problem should be a leakage of number array length and the length where rounding should take place
+
         // check if array has '.'
+        if (numEntered.includes('.')) {
+            // is array length > 9
+            if (numEntered.length <= 9) {
+                // if no, update;
+                numEntered.push(e.target.getAttribute('data-value'));
+            } else {
+                // console.log('length = 9');
+                // if yes, use round() return new array and set flag
+                [numEntered, rounded] = round(numEntered, 9, rounded);
+                console.log(numEntered);
+                console.log(rounded);
+            };
+        } else {
         // if no, is the array length > 8
-        // if yes, stop updating, else do nothing
-        // if array length > 9
-        // use round() return new array and set flag
-        // if array length <= 9, do nothing
+            if (numEntered.length < 8) {
+                // if no, update
+                numEntered.push(e.target.getAttribute('data-value'));
+            };
+            // if yes, stop updating
+            // TODO: add else clause with blink function;
+        }
         let numString = convertToNumString(numEntered);
+        console.log(numString.length);
+        console.log(numString);
         updateViewport(numString);
     });
 });

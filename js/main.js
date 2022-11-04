@@ -116,6 +116,11 @@ numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
         numEntered.push(e.target.getAttribute('data-value'));
         // check if array has '.'
+        // if no, is the array length > 8
+        // if yes, stop updating, else do nothing
+        // if array length > 9
+        // use round() return new array and set flag
+        // if array length <= 9, do nothing
         let numString = convertToNumString(numEntered);
         updateViewport(numString);
     });

@@ -34,6 +34,21 @@ function convertToNumString(numArr) {
     };
 };
 
+function round(numArr) {
+    if (numArr.includes('.') && (numArr.length > 9)) {
+        if (numArr[9] > 4) {
+            numArr[8] = `${Number(numArr[8]) + 1}`;
+            return numArr.slice(0, 9);
+        } else {
+            return numArr.slice(0, 9);
+        };
+    } else if (numArr.length > 8) {
+        return false;
+    } else {
+        return numArr;
+    };
+};
+
 function updateViewport(numString) {
     if (numString === false) {
         // for divide by zero error

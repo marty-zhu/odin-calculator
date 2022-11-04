@@ -34,19 +34,16 @@ function convertToNumString(numArr) {
     };
 };
 
-function round(numArr) {
-    if (numArr.includes('.') && (numArr.length > 9)) {
-        if (numArr[9] > 4) {
-            numArr[8] = `${Number(numArr[8]) + 1}`;
-            return numArr.slice(0, 9);
-        } else {
-            return numArr.slice(0, 9);
-        };
-    } else if (numArr.length > 8) {
-        return false;
-    } else {
-        return numArr;
+function round(numArr, n, rounded) {
+    if (numArr > n) {
+        if (!rounded) {
+            if (numArr[n] > 4) {
+                numArr[n-1]++;
+            };
+            numArr = numArr.slice(0, 9);
+        }
     };
+    return numArr;
 };
 
 function updateViewport(numString) {

@@ -43,7 +43,7 @@ function round(numArr, n, rounded) {
             numArr = numArr.slice(0, 9);
         }
     };
-    return numArr;
+    return [numArr, true];
 };
 
 function updateViewport(numString) {

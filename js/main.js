@@ -118,21 +118,22 @@ function calculate(initialNum, secNumArr, operation) {
 
 numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
-        // TODO: fix bug that causes timing inconsistencies between conditions to trigger rounding and the rounding function
-        // main problem should be a leakage of number array length and the length where rounding should take place
 
         // check if array has '.'
         if (numEntered.includes('.')) {
             // is array length > 9
-            if (numEntered.length <= 9) {
+            if (numEntered.length < 9) {
                 // if no, update;
                 numEntered.push(e.target.getAttribute('data-value'));
             } else {
-                // console.log('length = 9');
                 // if yes, use round() return new array and set flag
+
+                // TODO: fix bug that causes timing inconsistencies between conditions to trigger rounding and the rounding function
+                // main problem should be a leakage of number array length and the length where rounding should take place
+
                 [numEntered, rounded] = round(numEntered, 9, rounded);
-                console.log(numEntered);
-                console.log(rounded);
+                // console.log(numEntered);
+                // console.log(rounded);
             };
         } else {
         // if no, is the array length > 8
@@ -143,9 +144,11 @@ numpadKeys.forEach((numKey) => {
             // if yes, stop updating
             // TODO: add else clause with blink function;
         }
+
+        // numEntered.push(e.target.getAttribute('data-value'));
         let numString = convertToNumString(numEntered);
-        console.log(numString.length);
-        console.log(numString);
+        // console.log(numString.length);
+        // console.log(numString);
         updateViewport(numString);
     });
 });

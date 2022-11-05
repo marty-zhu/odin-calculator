@@ -119,6 +119,7 @@ function calculate(initialNum, secNumArr, operation) {
 numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
 
+        // TODO: make an evaluation function to contain all code related to rounding
         // check if array has '.'
         if (numEntered.includes('.')) {
             // is array length > 9

@@ -1,4 +1,4 @@
-// TODO: add overflow rounding (max width 8 chars)
+// TODO: add rounding to calculation results
 
 // 0. DOM OBJECTS
 
@@ -191,6 +191,7 @@ calKeys.forEach((calKey) => {
 let ordCode;
 
 document.addEventListener('keydown', (e) => {
+    // TODO: add button pop effect buttons other than numbers
     let name = e.key;
     let code = e.code;
     ordCode = name.charCodeAt(0);

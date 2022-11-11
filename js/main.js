@@ -136,10 +136,8 @@ function calculate(initialNum, secNumArr, operation) {
 
 numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
-
-        // TODO: make an evaluation function to contain all code related to rounding
-
-        // numEntered.push(e.target.getAttribute('data-value'));
+        let num = e.target.getAttribute('data-value');
+        updateNumEntered(num);
         let numString = convertToNumString(numEntered);
         updateViewport(numString);
     });
@@ -196,7 +194,7 @@ document.addEventListener('keydown', (e) => {
     let ordCode = name.charCodeAt(0);
 
     if (Number(name) >= 0 && Number(name) <= 9) {
-        numEntered.push(name);
+        updateNumEntered(name);
         let numString = convertToNumString(numEntered);
         updateViewport(numString);
     };

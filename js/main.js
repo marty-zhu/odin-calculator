@@ -185,15 +185,20 @@ calKeys.forEach((calKey) => {
     calKey.addEventListener('mouseup', (e) => {
         calKey.classList.remove('active');
     });
-})
+});
 
 // test keyboard event listner
+let ordCode;
+
 document.addEventListener('keydown', (e) => {
     let name = e.key;
     let code = e.code;
-    let ordCode = name.charCodeAt(0);
+    ordCode = name.charCodeAt(0);
+    console.log(`${name}:${code}`)
 
     if (Number(name) >= 0 && Number(name) <= 9) {
+        let key = document.querySelector(`.cal-key[data-value="${name}"]`);
+        key.classList.add('active');
         updateNumEntered(name);
         let numString = convertToNumString(numEntered);
         updateViewport(numString);
@@ -228,5 +233,14 @@ document.addEventListener('keydown', (e) => {
         initialNum = calculate(initialNum, numEntered, operation);
         operation = ops[name];
         updateViewport(initialNum);
+    };
+})
+
+document.addEventListener('keyup', (e) => {
+    let name = e.key;
+    let key = document.querySelector(`.cal-key[data-value="${name}"]`);
+
+    if (key) {
+        key.classList.remove('active');
     };
 })

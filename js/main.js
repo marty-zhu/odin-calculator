@@ -120,7 +120,6 @@ numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
 
         // TODO: make an evaluation function to contain all code related to rounding
-        // check if array has '.'
         if (numEntered.includes('.')) {
             // is array length > 9
             if (numEntered.length < 9) {
@@ -128,28 +127,18 @@ numpadKeys.forEach((numKey) => {
                 numEntered.push(e.target.getAttribute('data-value'));
             } else {
                 // if yes, use round() return new array and set flag
-
-                // TODO: fix bug that causes timing inconsistencies between conditions to trigger rounding and the rounding function
-                // main problem should be a leakage of number array length and the length where rounding should take place
-
                 [numEntered, rounded] = round(numEntered, 9, rounded);
-                // console.log(numEntered);
-                // console.log(rounded);
             };
         } else {
-        // if no, is the array length > 8
             if (numEntered.length < 8) {
                 // if no, update
                 numEntered.push(e.target.getAttribute('data-value'));
             };
-            // if yes, stop updating
             // TODO: add else clause with blink function;
         }
 
         // numEntered.push(e.target.getAttribute('data-value'));
         let numString = convertToNumString(numEntered);
-        // console.log(numString.length);
-        // console.log(numString);
         updateViewport(numString);
     });
 });

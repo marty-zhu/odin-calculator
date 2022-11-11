@@ -23,7 +23,25 @@ const calViewport = document.querySelector("div#cal-viewport");
 let initialNum = 0;
 let numEntered = new Array();
 let operation = undefined;
-let rounded = false;
+// let rounded = false;
+
+function updateNumEntered(num) {
+    if (numEntered.includes('.')) {
+        // limit to max 8 digits for float
+        if (numEntered.length < 9) {    // 9 because '.' is counted as an array element
+            numEntered.push(num);
+        // } else {
+        //     [numEntered, rounded] = round(numEntered, 9, rounded);
+        };
+    } else {
+        // limit to max 8 digits for int
+        if (numEntered.length < 8) {
+            // if no, update
+            numEntered.push(num);
+        };
+        // TODO: add else clause with blink function;
+    };
+}
 
 function convertToNumString(numArr) {
     // create display function to show the numbers entered in the viewport
@@ -35,21 +53,21 @@ function convertToNumString(numArr) {
     };
 };
 
-function round(numArr, n, rounded) {
-    // TODO: account for when the last digit is 9
-    if (numArr.length > n) {
-        if (!rounded) {
-            console.log('not rounded!');
-            let num = Number(numArr[n]);
-            if (num > 4) {
-                numArr[n-1] = `${Number(numArr[n-1]) + 1}`;
-            };
-            numArr = numArr.slice(0, 9);
-            rounded = true;
-        };
-    };
-    return [numArr, rounded];
-};
+// function round(numArr, n, rounded) {
+//     // TODO: account for when the last digit is 9
+//     if (numArr.length > n) {
+//         if (!rounded) {
+//             console.log('not rounded!');
+//             let num = Number(numArr[n]);
+//             if (num > 4) {
+//                 numArr[n-1] = `${Number(numArr[n-1]) + 1}`;
+//             };
+//             numArr = numArr.slice(0, 9);
+//             rounded = true;
+//         };
+//     };
+//     return [numArr, rounded];
+// };
 
 function updateViewport(numString) {
     if (numString === false) {
@@ -64,7 +82,7 @@ function clearNum() {
     numEntered = [];
     initialNum = 0;
     operation = undefined;
-    rounded = false;
+    // rounded = false;
 };
 
 function backspace() {
@@ -120,22 +138,6 @@ numpadKeys.forEach((numKey) => {
     numKey.addEventListener('click', (e) => {
 
         // TODO: make an evaluation function to contain all code related to rounding
-        if (numEntered.includes('.')) {
-            // is array length > 9
-            if (numEntered.length < 9) {
-                // if no, update;
-                numEntered.push(e.target.getAttribute('data-value'));
-            } else {
-                // if yes, use round() return new array and set flag
-                [numEntered, rounded] = round(numEntered, 9, rounded);
-            };
-        } else {
-            if (numEntered.length < 8) {
-                // if no, update
-                numEntered.push(e.target.getAttribute('data-value'));
-            };
-            // TODO: add else clause with blink function;
-        }
 
         // numEntered.push(e.target.getAttribute('data-value'));
         let numString = convertToNumString(numEntered);

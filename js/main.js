@@ -54,7 +54,8 @@ function convertToNumString(numArr) {
 
 function round(numString) {
     if ((numString.length > 8) && (numString.includes('.'))) {
-        let num = parseFloat(numString).toFixed(7);
+        let idx = numString.indexOf('.');
+        let num = parseFloat(numString).toFixed(8 - idx);
         return `${num}`;
     };
     return numString;

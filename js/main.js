@@ -1,4 +1,6 @@
-// TODO: add rounding to calculation results
+// TODO: 
+//  - add rounding to calculation results
+//  - keep ops keys highlighted until CLEAR, replacement by another ops key, or RETURN
 
 // 0. DOM OBJECTS
 

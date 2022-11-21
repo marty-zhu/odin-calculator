@@ -1,5 +1,6 @@
 // TODO: 
 //  - make updateViewport where the rounding happens - DONE!
+//  - make updateNumEntered limite integer digits to 7 - DONE!
 //  - add rounding to calculation results
 //  - keep ops keys highlighted until CLEAR, replacement by another ops key, or RETURN
 
@@ -29,14 +30,16 @@ let operation = undefined;
 // let rounded = false;
 
 function updateNumEntered(entry) {
-    // gatekeeper for user inputted values
-    if (entry === '.') {
-        if (!numEntered.includes('.')) {
-            numEntered.push(entry);
-        };
+    if (numEntered.includes('.')) {
+        if (entry === '.') {
+            return;
+        }
     } else {
-        numEntered.push(entry);
+        if (numEntered.length > 7) {
+            return;
+        }
     };
+    numEntered.push(entry);
 };
 
 function convertToNumString(numArr) {

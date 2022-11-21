@@ -1,5 +1,4 @@
 // TODO: 
-//  - make updateNumEntered a gatekeeper for '.'
 //  - make updateViewport where the rounding happens
 //  - add rounding to calculation results
 //  - keep ops keys highlighted until CLEAR, replacement by another ops key, or RETURN
@@ -29,24 +28,16 @@ let numEntered = new Array();
 let operation = undefined;
 // let rounded = false;
 
-function updateNumEntered(num) {
+function updateNumEntered(entry) {
     // gatekeeper for user inputted values
-    if (numEntered.includes('.')) {
-        // limit to max 8 digits for float
-        if (numEntered.length < 9) {    // 9 because '.' is counted as an array element
-            numEntered.push(num);
-        // } else {
-        //     [numEntered, rounded] = round(numEntered, 9, rounded);
+    if (entry === '.') {
+        if (!numEntered.includes('.')) {
+            numEntered.push(entry);
         };
     } else {
-        // limit to max 8 digits for int
-        if (numEntered.length < 8) {
-            // if no, update
-            numEntered.push(num);
-        };
-        // TODO: add else clause with blink function;
+        numEntered.push(entry);
     };
-}
+};
 
 function convertToNumString(numArr) {
     // create display function to show the numbers entered in the viewport

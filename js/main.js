@@ -1,4 +1,6 @@
 // TODO: 
+//  - make updateNumEntered a gatekeeper for '.'
+//  - make updateViewport where the rounding happens
 //  - add rounding to calculation results
 //  - keep ops keys highlighted until CLEAR, replacement by another ops key, or RETURN
 
@@ -28,6 +30,7 @@ let operation = undefined;
 // let rounded = false;
 
 function updateNumEntered(num) {
+    // gatekeeper for user inputted values
     if (numEntered.includes('.')) {
         // limit to max 8 digits for float
         if (numEntered.length < 9) {    // 9 because '.' is counted as an array element

@@ -142,7 +142,7 @@ decimalKey.addEventListener('click', (e) => {
 
 clearKey.addEventListener('click', () => {
     clearNum();
-    updateViewport(initialNum);
+    updateViewport(initialNum.toString());
 });
 
 bkspKey.addEventListener('click', () => {
@@ -161,7 +161,7 @@ opsKeys.forEach((opsKey) => {
 
 enterKey.addEventListener('click', () => {
     initialNum = calculate(initialNum, numEntered, operation);
-    updateViewport(initialNum);
+    updateViewport(initialNum.toString());
 })
 
 // 3.2. AESTHETICAL EVENT LISTNERS
@@ -205,7 +205,7 @@ document.addEventListener('keydown', (e) => {
 
     if (code === 'KeyC') {
         clearNum();
-        updateViewport(initialNum);
+        updateViewport(initialNum.toString());
     };
 
     if (code === 'Backspace') {
@@ -216,13 +216,13 @@ document.addEventListener('keydown', (e) => {
 
     if (code === 'Enter') {
         initialNum = calculate(initialNum, numEntered, operation);
-        updateViewport(initialNum);
+        updateViewport(initialNum.toString());
     };
 
     if (['+', '-', '*', '/'].includes(name)) {
         initialNum = calculate(initialNum, numEntered, operation);
         operation = ops[name];
-        updateViewport(initialNum);
+        updateViewport(initialNum.toString());
     };
 })
 

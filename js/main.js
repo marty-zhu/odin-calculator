@@ -179,6 +179,7 @@ enterKey.addEventListener('click', () => {
 // 3.2. AESTHETICAL EVENT LISTNERS
 
 calKeys.forEach((calKey) => {
+    // TODO: ops keys should remain highlighted until CLEAR, another ops key is pressed, or RETURNED
     calKey.addEventListener('mousedown', (e) => {
         calKey.classList.add('active');
     });

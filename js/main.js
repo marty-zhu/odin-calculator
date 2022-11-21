@@ -1,5 +1,5 @@
 // TODO: 
-//  - make updateViewport where the rounding happens
+//  - make updateViewport where the rounding happens - DONE!
 //  - add rounding to calculation results
 //  - keep ops keys highlighted until CLEAR, replacement by another ops key, or RETURN
 
@@ -49,28 +49,20 @@ function convertToNumString(numArr) {
     };
 };
 
-// function round(numArr, n, rounded) {
-//     // TODO: account for when the last digit is 9
-//     if (numArr.length > n) {
-//         if (!rounded) {
-//             console.log('not rounded!');
-//             let num = Number(numArr[n]);
-//             if (num > 4) {
-//                 numArr[n-1] = `${Number(numArr[n-1]) + 1}`;
-//             };
-//             numArr = numArr.slice(0, 9);
-//             rounded = true;
-//         };
-//     };
-//     return [numArr, rounded];
-// };
+function round(numString) {
+    if ((numString.length > 8) && (numString.includes('.'))) {
+        let num = parseFloat(numString).toFixed(7);
+        return `${num}`;
+    };
+    return numString;
+};
 
 function updateViewport(numString) {
     if (numString === false) {
         // for divide by zero error
         calViewport.textContent = 'ERROR';
     } else {
-        calViewport.textContent = numString;
+        calViewport.textContent = round(numString);
     };
 };
 
@@ -163,7 +155,7 @@ opsKeys.forEach((opsKey) => {
     opsKey.addEventListener('click', (e) => {
         initialNum = calculate(initialNum, numEntered, operation);
         operation = ops[e.target.getAttribute('data-value')];
-        updateViewport(initialNum);
+        updateViewport(initialNum.toString());
     })
 })
 

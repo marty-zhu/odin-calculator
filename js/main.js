@@ -120,7 +120,13 @@ function calculate(initialNum, secNumArr, operation) {
     clearNum();
 
     return calcResult;
-}
+};
+
+function clearOpsKeyHighlights() {
+    opsKeys.forEach((opsKey) => {
+        opsKey.classList.remove('highlight');
+    });
+};
 
 // 3. EVENT LISTNERS
 
@@ -146,6 +152,7 @@ decimalKey.addEventListener('click', (e) => {
 
 clearKey.addEventListener('click', () => {
     clearNum();
+    clearOpsKeyHighlights();
     updateViewport(initialNum.toString());
 });
 
@@ -165,6 +172,7 @@ opsKeys.forEach((opsKey) => {
 
 enterKey.addEventListener('click', () => {
     initialNum = calculate(initialNum, numEntered, operation);
+    clearOpsKeyHighlights();
     updateViewport(initialNum.toString());
 })
 
@@ -182,9 +190,7 @@ calKeys.forEach((calKey) => {
 
 opsKeys.forEach((opsKey) => {
     opsKey.addEventListener('mousedown', (e) => {
-        opsKeys.forEach((key) => {
-            key.classList.remove('highlight');
-        })
+        clearOpsKeyHighlights();
         opsKey.classList.add('highlight');
     });
 });

@@ -87,6 +87,11 @@ ul, ol {
     transform: scale(0.95);
 }
 
+.cal-key.highlight {
+    background-color: orange;
+    color: beige;
+}
+
 .cal-numkey:not(#num-0) {
     aspect-ratio: 1/1;
 }

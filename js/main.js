@@ -180,6 +180,15 @@ calKeys.forEach((calKey) => {
     });
 });
 
+opsKeys.forEach((opsKey) => {
+    opsKey.addEventListener('mousedown', (e) => {
+        opsKeys.forEach((key) => {
+            key.classList.remove('highlight');
+        })
+        opsKey.classList.add('highlight');
+    });
+});
+
 // test keyboard event listner
 let ordCode;
 

@@ -223,6 +223,7 @@ document.addEventListener('keydown', (e) => {
     }
 
     if (code === 'KeyC') {
+        clearOpsKeyHighlights();
         clearNum();
         updateViewport(initialNum.toString());
     };
@@ -235,12 +236,16 @@ document.addEventListener('keydown', (e) => {
 
     if (code === 'Enter') {
         initialNum = calculate(initialNum, numEntered, operation);
+        clearOpsKeyHighlights();
         updateViewport(initialNum.toString());
     };
 
     if (['+', '-', '*', '/'].includes(name)) {
         initialNum = calculate(initialNum, numEntered, operation);
         operation = ops[name];
+        let elem = document.querySelector(`.cal-opskey[data-value="${name}"]`);
+        clearOpsKeyHighlights();
+        elem.classList.add('highlight');
         updateViewport(initialNum.toString());
     };
 })

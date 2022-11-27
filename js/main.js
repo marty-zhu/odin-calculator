@@ -1,8 +1,5 @@
 // TODO: 
-//  - make updateViewport where the rounding happens - DONE!
-//  - make updateNumEntered limite integer digits to 7 - DONE!
-//  - add rounding to calculation results - DONE!
-//  - keep ops keys highlighted until CLEAR, replacement by another ops key, or RETURN
+// - prettify app
 
 // 0. DOM OBJECTS
 

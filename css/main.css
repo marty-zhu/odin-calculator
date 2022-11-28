@@ -107,9 +107,9 @@ ul, ol {
     color: beige;
 }
 
-.cal-numkey:not(#num-0) {
-    /* aspect-ratio: 1/1; */
-}
+/* .cal-numkey:not(#num-0) {
+    aspect-ratio: 1/1;
+} */
 
 #num-0 {
     grid-column-start: 1;
